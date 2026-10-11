@@ -60,15 +60,37 @@
   </nav>
 
   <header class="hero">
-    <video class="hero-video" autoplay muted loop playsinline poster="assets/images/aglaonema-snow-white.png">
-      <source src="assets/video/hero-video.mp4" type="video/mp4" />
-    </video>
-    <div class="hero-overlay"></div>
-    <div class="container hero-content">
-      <div class="hero-copy reveal">
+  <video
+    class="hero-video"
+    id="heroVideo"
+    autoplay
+    muted
+    loop
+    playsinline
+    poster="assets/images/aglaonema-snow-white.png"
+  >
+    <source src="assets/video/hero-video.mp4" type="video/mp4" />
+  </video>
+
+  <div class="hero-overlay"></div>
+
+  <!-- Mute / Unmute button -->
+  <button
+    type="button"
+    class="video-sound-btn"
+    id="videoSoundBtn"
+    aria-label="Turn video sound on"
+    aria-pressed="false"
+  >
+    <i class="bi bi-volume-mute-fill" id="videoSoundIcon"></i>
+    <span id="videoSoundText">Unmute</span>
+  </button>
+
+  <div class="container hero-content">
+    <div class="hero-copy reveal">
         <p class="eyebrow">The Linen Leaf by Simran</p>
         <h1>Where nature<br /><em>lives in neutrals.</em></h1>
-        <p class="hero-lead">
+        <p class="hero-lead text-light">
           Where nature meets modern elegance — curated greens designed to live beautifully in your space.
         </p>
         <div class="d-flex flex-wrap gap-3">
@@ -79,11 +101,13 @@
           </a>
         </div>
       </div>
-    </div>
-    <div class="hero-scroll">
-      <span>Explore Living Beauty </span><i class="bi bi-arrow-down"></i>
-    </div>
-  </header>
+  </div>
+
+  <div class="hero-scroll">
+    <span >Explore Living Beauty</span>
+    <i class="bi bi-arrow-down"></i>
+  </div>
+</header>
 
   <main>
     <section class="intro-section section-space">

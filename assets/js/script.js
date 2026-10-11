@@ -99,3 +99,44 @@ console.log({
     height: window.innerHeight
   }
 });
+
+// Hero video mute / unmute
+document.addEventListener("DOMContentLoaded", function () {
+  const video = document.getElementById("heroVideo");
+  const soundBtn = document.getElementById("videoSoundBtn");
+  const soundIcon = document.getElementById("videoSoundIcon");
+  const soundText = document.getElementById("videoSoundText");
+
+  if (!video || !soundBtn) return;
+
+  // Start muted so autoplay works in most browsers
+  video.muted = true;
+  video.defaultMuted = true;
+
+  soundBtn.addEventListener("click", async function () {
+    if (video.muted) {
+      video.muted = false;
+      video.volume = 1;
+
+      try {
+        await video.play();
+
+        soundIcon.className = "bi bi-volume-up-fill";
+        soundText.textContent = "Mute";
+        soundBtn.setAttribute("aria-label", "Mute video sound");
+        soundBtn.setAttribute("aria-pressed", "true");
+      } catch (error) {
+        video.muted = true;
+        soundText.textContent = "Tap for sound";
+        soundIcon.className = "bi bi-volume-mute-fill";
+      }
+    } else {
+      video.muted = true;
+
+      soundIcon.className = "bi bi-volume-mute-fill";
+      soundText.textContent = "Unmute";
+      soundBtn.setAttribute("aria-label", "Turn video sound on");
+      soundBtn.setAttribute("aria-pressed", "false");
+    }
+  });
+});
